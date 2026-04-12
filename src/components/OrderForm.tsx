@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { X, Send } from "lucide-react";
 
 interface OrderFormProps {
@@ -9,17 +9,21 @@ interface OrderFormProps {
 
 const WHATSAPP_NUMBER = "6287701330823";
 
-export default function OrderForm({ isOpen, onClose, service }: OrderFormProps) {
+export default function OrderForm({
+  isOpen,
+  onClose,
+  service,
+}: OrderFormProps) {
   const [nama, setNama] = useState("");
   const [instansi, setInstansi] = useState("");
   const [bantuan, setBantuan] = useState("");
 
   // Menyesuaikan label berdasarkan jenis layanan
-  const isKuliah = 
-    service.toLowerCase().includes("kuliah") || 
-    service.toLowerCase().includes("skripsi") || 
+  const isKuliah =
+    service.toLowerCase().includes("kuliah") ||
+    service.toLowerCase().includes("skripsi") ||
     service.toLowerCase().includes("tesis");
-    
+
   const instansiLabel = isKuliah ? "Asal Perguruan Tinggi" : "Asal Sekolah";
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -29,12 +33,12 @@ export default function OrderForm({ isOpen, onClose, service }: OrderFormProps) 
     // Memformat pesan untuk WhatsApp
     const message = `Halo nama saya ${nama} dari ${instansi}. Saya ingin ${bantuan} ke GasJoki.id, apakah dapat berdiskusi lebih lanjut?`;
     const encoded = encodeURIComponent(message);
-    
+
     window.open(
       `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encoded}`,
-      "_blank"
+      "_blank",
     );
-    
+
     // Opsional: bersihkan form dan tutup
     setNama("");
     setInstansi("");
@@ -43,34 +47,41 @@ export default function OrderForm({ isOpen, onClose, service }: OrderFormProps) 
   };
 
   return (
-    <div 
+    <div
       className={`fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all duration-400 ease-out ${
-        isOpen ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
+        isOpen
+          ? "opacity-100 visible pointer-events-auto"
+          : "opacity-0 invisible pointer-events-none"
       }`}
     >
-      <div 
+      <div
         className={`bg-slate-900 border border-slate-700 w-full max-w-md rounded-2xl shadow-2xl relative transform transition-all duration-400 ease-out ${
-          isOpen ? "scale-100 opacity-100 translate-y-0" : "scale-90 opacity-0 translate-y-4"
+          isOpen
+            ? "scale-100 opacity-100 translate-y-0"
+            : "scale-90 opacity-0 translate-y-4"
         }`}
       >
-        <button 
+        <button
           onClick={onClose}
           className="absolute right-5 top-5 text-slate-400 hover:text-white transition-colors bg-slate-800 p-1.5 rounded-full"
         >
           <X className="w-5 h-5" />
         </button>
-        
+
         <div className="p-6 md:p-8">
           <h3 className="text-2xl font-bold text-white mb-2">Form Pemesanan</h3>
           <p className="text-slate-400 text-sm mb-6">
-            Layanan terpilih: <span className="text-orange-400 font-semibold">{service}</span>
+            Layanan terpilih:{" "}
+            <span className="text-orange-400 font-semibold">{service}</span>
           </p>
-          
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1.5">Nama Lengkap</label>
-              <input 
-                type="text" 
+              <label className="block text-sm font-medium text-slate-300 mb-1.5">
+                Nama Lengkap
+              </label>
+              <input
+                type="text"
                 required
                 value={nama}
                 onChange={(e) => setNama(e.target.value)}
@@ -78,11 +89,13 @@ export default function OrderForm({ isOpen, onClose, service }: OrderFormProps) 
                 placeholder="Masukkan nama Anda"
               />
             </div>
-            
+
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1.5">{instansiLabel}</label>
-              <input 
-                type="text" 
+              <label className="block text-sm font-medium text-slate-300 mb-1.5">
+                {instansiLabel}
+              </label>
+              <input
+                type="text"
                 required
                 value={instansi}
                 onChange={(e) => setInstansi(e.target.value)}
@@ -90,10 +103,12 @@ export default function OrderForm({ isOpen, onClose, service }: OrderFormProps) 
                 placeholder={`Masukkan ${instansiLabel.toLowerCase()}`}
               />
             </div>
-            
+
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1.5">Apa yang bisa kami bantu?</label>
-              <textarea 
+              <label className="block text-sm font-medium text-slate-300 mb-1.5">
+                Apa yang bisa kami bantu?
+              </label>
+              <textarea
                 required
                 value={bantuan}
                 onChange={(e) => setBantuan(e.target.value)}
@@ -101,9 +116,9 @@ export default function OrderForm({ isOpen, onClose, service }: OrderFormProps) 
                 placeholder="Jelaskan jenis tugas, deadline, dan detail lainnya..."
               ></textarea>
             </div>
-            
+
             <div className="pt-2">
-              <button 
+              <button
                 type="submit"
                 className="w-full py-3.5 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 rounded-xl font-bold transition-all shadow-lg glow-orange text-white flex justify-center items-center gap-2"
               >

@@ -27,15 +27,12 @@ import {
 import OrderForm from "./components/OrderForm";
 import FAQModal from "./components/FAQModal";
 
-const WHATSAPP_NUMBER = "6287701330823";
-
 function App() {
   const [navBg, setNavBg] = useState(false);
   const [typedText, setTypedText] = useState("");
   const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
   const [selectedService, setSelectedService] = useState("");
   const [isFaqOpen, setIsFaqOpen] = useState(false);
-
 
   // Scroll Navbar effect
   useEffect(() => {
@@ -97,7 +94,7 @@ function App() {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
     reveals.forEach((el) => revealObserver.observe(el));
 
@@ -124,7 +121,7 @@ function App() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
     counters.forEach((c) => counterObserver.observe(c));
 
@@ -216,7 +213,10 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="beranda" className="relative pt-36 pb-20 px-6 overflow-hidden">
+      <section
+        id="beranda"
+        className="relative pt-36 pb-20 px-6 overflow-hidden"
+      >
         <div className="absolute top-40 -left-32 w-96 h-96 bg-blue-600/20 rounded-full blur-[130px]"></div>
         <div className="absolute bottom-20 right-0 w-80 h-80 bg-orange-500/15 rounded-full blur-[120px]"></div>
         <div className="container mx-auto text-center relative z-10">
@@ -228,8 +228,7 @@ function App() {
             <span className="text-orange-500 underline decoration-blue-500 decoration-4">
               PUSING
             </span>
-            <br />
-            & BEGADANG?!
+            <br />& BEGADANG?!
           </h1>
           <div className="text-xl md:text-2xl text-slate-300 mb-4">
             <span id="typewriter" className="font-bold text-blue-400">
@@ -239,7 +238,8 @@ function App() {
           </div>
           <p className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto mb-8">
             Ratusan mahasiswa & pelajar sudah terbantu. Dapatkan nilai maksimal
-            tanpa ribet. <span className="text-orange-400 font-bold">#GasTerus</span>
+            tanpa ribet.{" "}
+            <span className="text-orange-400 font-bold">#GasTerus</span>
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button
@@ -250,7 +250,9 @@ function App() {
             </button>
             <button
               onClick={() =>
-                document.getElementById("testimoni")?.scrollIntoView({ behavior: "smooth" })
+                document
+                  .getElementById("testimoni")
+                  ?.scrollIntoView({ behavior: "smooth" })
               }
               className="border border-orange-500/50 hover:bg-orange-500/20 text-orange-400 font-semibold py-3 px-7 rounded-full transition-all flex items-center gap-2"
             >
@@ -271,7 +273,9 @@ function App() {
               </span>
               +
             </div>
-            <p className="text-slate-300 font-semibold mt-2">Tugas Terselesaikan</p>
+            <p className="text-slate-300 font-semibold mt-2">
+              Tugas Terselesaikan
+            </p>
           </div>
           <div className="card-vibrant rounded-2xl p-6 reveal">
             <Star className="w-10 h-10 text-orange-400 mx-auto mb-3" />
@@ -317,24 +321,26 @@ function App() {
                 Moh.Nafis Husen Romadani, S.Pd.
               </h2>
               <p className="text-blue-300 font-semibold mb-4 flex items-center gap-2">
-                <BadgeCheck className="w-5 h-5" /> Founder & Lead Academic Specialist
+                <BadgeCheck className="w-5 h-5" /> Founder & Lead Academic
+                Specialist
               </p>
               <div className="text-slate-300 leading-relaxed space-y-4 text-base text-justify">
                 <p>
-                  Bukan sekadar joki biasa. Kami merupakan tim profesional dengan
-                  member lulusan kampus terbaik, paham betul standar akademik dari
-                  sekolah hingga pascasarjana. Didirikan 2024,{" "}
+                  Bukan sekadar joki biasa. Kami merupakan tim profesional
+                  dengan member lulusan kampus terbaik, paham betul standar
+                  akademik dari sekolah hingga pascasarjana. Didirikan 2024,{" "}
                   <span className="text-white font-bold">GasJoki.id</span> hadir
                   karena satu keyakinan:{" "}
                   <span className="text-orange-300">
-                    "Tugas berat bukan berarti harus mengorbankan kesehatan mental dan
-                    waktu istirahat."
+                    "Tugas berat bukan berarti harus mengorbankan kesehatan
+                    mental dan waktu istirahat."
                   </span>
                 </p>
                 <p>
                   Setiap pengerjaan melalui 3 tahap: riset mendalam, penulisan
-                  sesuai standar ilmiah, dan cek turnitin. Kami menjaga privasi dan
-                  menjamin orisinalitas. Kamu tinggal duduk manis, kami gas pol!
+                  sesuai standar ilmiah, dan cek turnitin. Kami menjaga privasi
+                  dan menjamin orisinalitas. Kamu tinggal duduk manis, kami gas
+                  pol!
                 </p>
                 <div className="flex flex-wrap gap-3 pt-2">
                   <span className="bg-blue-500/20 px-3 py-1 rounded-full text-sm flex items-center gap-1 text-slate-200">
@@ -376,7 +382,9 @@ function App() {
               <div className="w-14 h-14 bg-orange-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-orange-400" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-white">Lulusan Ahli</h3>
+              <h3 className="text-xl font-bold mb-2 text-white">
+                Lulusan Ahli
+              </h3>
               <p className="text-slate-300 text-sm">
                 Tim dari UI, ITB, UGM berpengalaman di bidangnya.
               </p>
@@ -385,7 +393,9 @@ function App() {
               <div className="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Lock className="w-8 h-8 text-blue-400" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-white">100% Privasi</h3>
+              <h3 className="text-xl font-bold mb-2 text-white">
+                100% Privasi
+              </h3>
               <p className="text-slate-300 text-sm">
                 Data dan identitas dijamin rahasia, tidak bocor.
               </p>
@@ -394,7 +404,9 @@ function App() {
               <div className="w-14 h-14 bg-orange-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <CreditCard className="w-8 h-8 text-orange-400" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-white">Harga Bersahabat</h3>
+              <h3 className="text-xl font-bold mb-2 text-white">
+                Harga Bersahabat
+              </h3>
               <p className="text-slate-300 text-sm">
                 Sesuai kantong mahasiswa, ada promo untuk first order.
               </p>
@@ -420,7 +432,9 @@ function App() {
             {/* Card 1 */}
             <div className="card-vibrant rounded-3xl p-7 transition-all hover:border-blue-400/70 reveal">
               <BookOpen className="w-12 h-12 text-blue-400 mb-5" />
-              <h3 className="text-2xl font-bold mb-3 text-white">Tugas Sekolah</h3>
+              <h3 className="text-2xl font-bold mb-3 text-white">
+                Tugas Sekolah
+              </h3>
               <p className="text-slate-300 mb-4 text-sm">
                 PR, Laporan praktikum, resume, hingga presentasi. SMP/SMA/SMK.
               </p>
@@ -441,7 +455,9 @@ function App() {
                 ⭐ BEST SELLER
               </div>
               <GraduationCap className="w-12 h-12 text-orange-400 mb-5" />
-              <h3 className="text-2xl font-bold mb-3 text-white">Tugas Kuliah</h3>
+              <h3 className="text-2xl font-bold mb-3 text-white">
+                Tugas Kuliah
+              </h3>
               <p className="text-slate-300 mb-4 text-sm">
                 Makalah, jurnal, studi kasus, SPSS, Matlab, dan analisis data.
               </p>
@@ -459,9 +475,12 @@ function App() {
             {/* Card 3 */}
             <div className="card-vibrant rounded-3xl p-7 transition-all hover:border-blue-400/70 reveal">
               <ScrollText className="w-12 h-12 text-blue-400 mb-5" />
-              <h3 className="text-2xl font-bold mb-3 text-white">Skripsi & Tesis</h3>
+              <h3 className="text-2xl font-bold mb-3 text-white">
+                Skripsi & Tesis
+              </h3>
               <p className="text-slate-300 mb-4 text-sm">
-                Bimbingan Bab 1-5, olah data kuantitatif/kualitatif, revisi, sidang.
+                Bimbingan Bab 1-5, olah data kuantitatif/kualitatif, revisi,
+                sidang.
               </p>
               <ul className="text-sm text-slate-300 mb-6 space-y-1">
                 <li>✓ Konsultasi via zoom/wa</li>
@@ -511,7 +530,9 @@ function App() {
                 </div>
                 <div>
                   <p className="font-bold text-white">Dina A.</p>
-                  <p className="text-xs text-slate-400">Mahasiswa Psikologi UI</p>
+                  <p className="text-xs text-slate-400">
+                    Mahasiswa Psikologi UI
+                  </p>
                 </div>
               </div>
             </div>
@@ -529,7 +550,9 @@ function App() {
                 </div>
                 <div>
                   <p className="font-bold text-white">Rizky F.</p>
-                  <p className="text-xs text-slate-400">Teknik Informatika ITB</p>
+                  <p className="text-xs text-slate-400">
+                    Teknik Informatika ITB
+                  </p>
                 </div>
               </div>
             </div>
@@ -563,8 +586,8 @@ function App() {
             Jangan Tunda Lagi!
           </h2>
           <p className="text-slate-300 text-lg mb-6">
-            Deadline menghantui? GasJoki.id siap bantu 24 jam. Klik tombol dibawah
-            untuk konsultasi GRATIS.
+            Deadline menghantui? GasJoki.id siap bantu 24 jam. Klik tombol
+            dibawah untuk konsultasi GRATIS.
           </p>
           <div className="flex flex-wrap justify-center gap-5">
             <button
@@ -640,16 +663,13 @@ function App() {
         </div>
       </footer>
 
-      <OrderForm 
-        isOpen={isOrderFormOpen} 
-        onClose={() => setIsOrderFormOpen(false)} 
-        service={selectedService} 
+      <OrderForm
+        isOpen={isOrderFormOpen}
+        onClose={() => setIsOrderFormOpen(false)}
+        service={selectedService}
       />
 
-      <FAQModal
-        isOpen={isFaqOpen}
-        onClose={() => setIsFaqOpen(false)}
-      />
+      <FAQModal isOpen={isFaqOpen} onClose={() => setIsFaqOpen(false)} />
     </>
   );
 }
