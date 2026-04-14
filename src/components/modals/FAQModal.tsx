@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, ChevronDown, MessageCircle } from "lucide-react";
+import { X, ChevronDown } from "lucide-react";
 import Button from "../ui/Button";
 
 interface FAQ {

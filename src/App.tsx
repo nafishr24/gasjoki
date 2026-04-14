@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MessageCircle, HelpCircle } from "lucide-react";
+import useScrollAnimation from "./hooks/useScrollAnimation";
 import OrderForm from "./components/modals/OrderForm";
 import FAQModal from "./components/modals/FAQModal";
 import Navbar from "./components/layouts/Navbar";
@@ -18,54 +19,7 @@ function App() {
   const [selectedService, setSelectedService] = useState("");
   const [isFaqOpen, setIsFaqOpen] = useState(false);
 
-  // Scroll Reveal and Counter Observers
-  useEffect(() => {
-    const reveals = document.querySelectorAll(".reveal");
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    reveals.forEach((el) => revealObserver.observe(el));
-
-    const counters = document.querySelectorAll(".counter");
-    const counterObserver = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const el = entry.target as HTMLElement;
-            const target = parseInt(el.getAttribute("data-target") || "0");
-            let current = 0;
-            const increment = target / 45;
-            const updateCounter = () => {
-              current += increment;
-              if (current < target) {
-                el.innerText = Math.floor(current).toString();
-                requestAnimationFrame(updateCounter);
-              } else {
-                el.innerText = target.toString();
-              }
-            };
-            updateCounter();
-            obs.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-    counters.forEach((c) => counterObserver.observe(c));
-
-    return () => {
-      revealObserver.disconnect();
-      counterObserver.disconnect();
-    };
-  }, []); // Run on mount to attach observers
+  useScrollAnimation();
 
   const pesanWA = (jasa: string) => {
     setSelectedService(jasa);
