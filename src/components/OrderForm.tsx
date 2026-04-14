@@ -7,7 +7,7 @@ interface OrderFormProps {
   service: string;
 }
 
-const WHATSAPP_NUMBER = "6287701330823";
+const WHATSAPP_NUMBER = import.meta.env.VITE_WA_NUMBER;
 
 export default function OrderForm({
   isOpen,
