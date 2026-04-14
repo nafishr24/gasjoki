@@ -1,4 +1,5 @@
 import { Clock9, Send } from "lucide-react";
+import Button from "../ui/Button";
 
 interface FinalCTAProps {
   pesanWA: (jasa: string) => void;
@@ -18,18 +19,18 @@ export default function FinalCTA({ pesanWA, scrollToLayanan }: FinalCTAProps) {
           untuk konsultasi GRATIS.
         </p>
         <div className="flex flex-wrap justify-center gap-5">
-          <button
+          <Button
+            variant="orange"
             onClick={() => pesanWA("Konsultasi Gratis")}
-            className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg transition transform hover:scale-105 shadow-2xl flex items-center gap-2"
           >
             <Send className="w-5 h-5" /> Konsultasi Sekarang
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="outlineBlue"
             onClick={scrollToLayanan}
-            className="border border-blue-500 hover:bg-blue-500/20 text-white px-8 py-4 rounded-full font-semibold transition"
           >
             Lihat Layanan
-          </button>
+          </Button>
         </div>
         <p className="text-slate-500 text-sm mt-6">
           *Garansi uang kembali jika tidak sesuai kesepakatan

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Zap, Users } from "lucide-react";
+import Button from "../ui/Button";
 
 interface HeroProps {
   scrollToLayanan: () => void;
@@ -69,20 +70,20 @@ export default function Hero({ scrollToLayanan }: HeroProps) {
           tanpa ribet. <span className="text-orange-400 font-bold">#GasTerus</span>
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <button
+          <Button
+            variant="orange"
             onClick={scrollToLayanan}
-            className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-xl flex items-center gap-2"
           >
             <Zap className="w-5 h-5" /> Pesan Sekarang
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="outlineOrange"
             onClick={() =>
               document.getElementById("testimoni")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="border border-orange-500/50 hover:bg-orange-500/20 text-orange-400 font-semibold py-3 px-7 rounded-full transition-all flex items-center gap-2"
           >
             <Users className="w-5 h-5 text-orange-400" /> Lihat Testimoni
-          </button>
+          </Button>
         </div>
       </div>
     </section>

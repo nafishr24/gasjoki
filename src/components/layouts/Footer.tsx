@@ -1,4 +1,5 @@
 import { MessageCircle, Mail } from "lucide-react";
+import Button from "../ui/Button";
 
 interface FooterProps {
   pesanWA: (jasa: string) => void;
@@ -39,13 +40,14 @@ export default function Footer({ pesanWA }: FooterProps) {
               <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
             </svg>
           </a>
-          <button
+          <Button
             id="waFooterLink"
-            onClick={() => pesanWA("Konsultasi")}
+            variant="unstyled"
             className="p-3 bg-green-600/20 hover:bg-green-600 text-green-400 hover:text-white rounded-full transition-all"
+            onClick={() => pesanWA("Konsultasi")}
           >
             <MessageCircle className="w-5 h-5" />
-          </button>
+          </Button>
           <a
             href="mailto:nafishusenromadani@gmail.com"
             className="p-3 bg-slate-700/30 hover:bg-slate-600 text-slate-300 rounded-full transition-all"

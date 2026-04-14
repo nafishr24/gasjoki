@@ -1,4 +1,5 @@
 import { BookOpen, GraduationCap, ScrollText, Gift } from "lucide-react";
+import Button from "../ui/Button";
 
 interface LayananProps {
   pesanWA: (jasa: string) => void;
@@ -30,12 +31,13 @@ export default function Layanan({ pesanWA }: LayananProps) {
               <li>✓ Pengerjaan 1x24 jam</li>
               <li>✓ Format rapi & siap kumpul</li>
             </ul>
-            <button
+            <Button
+              variant="dark"
+              fullWidth
               onClick={() => pesanWA("Tugas Sekolah")}
-              className="w-full py-3 bg-slate-800/80 hover:bg-blue-600 rounded-xl font-bold transition-all glow-blue text-white"
             >
               Pesan Sekarang →
-            </button>
+            </Button>
           </div>
           {/* Card 2 Best Seller */}
           <div className="card-vibrant rounded-3xl p-7 relative border-2 transform md:-translate-y-3 shadow-2xl reveal blinking-border">
@@ -51,12 +53,13 @@ export default function Layanan({ pesanWA }: LayananProps) {
               <li>✓ Dosen ahli & sumber jurnal terpercaya</li>
               <li>✓ Turnitin &lt; 20%</li>
             </ul>
-            <button
+            <Button
+              variant="gradient"
+              fullWidth
               onClick={() => pesanWA("Tugas Kuliah")}
-              className="w-full py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 rounded-xl font-bold transition-all shadow-lg glow-orange text-white"
             >
               Gas Sekarang!
-            </button>
+            </Button>
           </div>
           {/* Card 3 */}
           <div className="card-vibrant rounded-3xl p-7 transition-all hover:border-blue-400/70 reveal">
@@ -69,12 +72,13 @@ export default function Layanan({ pesanWA }: LayananProps) {
               <li>✓ Konsultasi via zoom/wa</li>
               <li>✓ Revisi tanpa batas sampai lulus</li>
             </ul>
-            <button
+            <Button
+              variant="dark"
+              fullWidth
               onClick={() => pesanWA("Skripsi/Tesis")}
-              className="w-full py-3 bg-slate-800/80 hover:bg-blue-600 rounded-xl font-bold transition-all glow-blue text-white"
             >
               Konsultasi Gratis
-            </button>
+            </Button>
           </div>
         </div>
         {/* promo banner */}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X, Send } from "lucide-react";
+import Button from "../ui/Button";
 
 interface OrderFormProps {
   isOpen: boolean;
@@ -7,7 +8,7 @@ interface OrderFormProps {
   service: string;
 }
 
-const WHATSAPP_NUMBER = import.meta.env.VITE_WA_NUMBER;
+const WHATSAPP_NUMBER = import.meta.env.VITE_WA_NUMBER || "6287701330823";
 
 export default function OrderForm({
   isOpen,
@@ -48,25 +49,30 @@ export default function OrderForm({
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all duration-400 ease-out ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all duration-300 ease-out ${
         isOpen
           ? "opacity-100 visible pointer-events-auto"
           : "opacity-0 invisible pointer-events-none"
       }`}
     >
+      <div 
+        className="absolute inset-0 w-full h-full" 
+        onClick={onClose}
+      ></div>
       <div
-        className={`bg-slate-900 border border-slate-700 w-full max-w-md rounded-2xl shadow-2xl relative transform transition-all duration-400 ease-out ${
+        className={`bg-slate-900 border border-slate-700 w-full max-w-md rounded-2xl shadow-2xl relative transform transition-all duration-300 ease-out ${
           isOpen
             ? "scale-100 opacity-100 translate-y-0"
             : "scale-90 opacity-0 translate-y-4"
         }`}
       >
-        <button
+        <Button
+          variant="close"
           onClick={onClose}
-          className="absolute right-5 top-5 text-slate-400 hover:text-white transition-colors bg-slate-800 p-1.5 rounded-full"
+          className="absolute right-5 top-5 z-10"
         >
           <X className="w-5 h-5" />
-        </button>
+        </Button>
 
         <div className="p-6 md:p-8">
           <h3 className="text-2xl font-bold text-white mb-2">Form Pemesanan</h3>
@@ -118,12 +124,13 @@ export default function OrderForm({
             </div>
 
             <div className="pt-2">
-              <button
+              <Button
+                variant="gradient"
+                fullWidth
                 type="submit"
-                className="w-full py-3.5 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 rounded-xl font-bold transition-all shadow-lg glow-orange text-white flex justify-center items-center gap-2"
               >
                 <Send className="w-5 h-5" /> Lanjut ke WhatsApp
-              </button>
+              </Button>
             </div>
           </form>
         </div>

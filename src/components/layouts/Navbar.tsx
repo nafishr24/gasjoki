@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Button from "../ui/Button";
 
 interface NavbarProps {
   scrollToLayanan: () => void;
@@ -58,12 +59,12 @@ export default function Navbar({ scrollToLayanan }: NavbarProps) {
             Testimoni
           </a>
         </div>
-        <button
+        <Button
+          variant="primary"
           onClick={scrollToLayanan}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-bold transition-all shadow-md hover:shadow-blue-500/30 transform hover:scale-105"
         >
           Gas Order!
-        </button>
+        </Button>
       </div>
     </nav>
   );
